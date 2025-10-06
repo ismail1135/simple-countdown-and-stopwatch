@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 300ms;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #111;
+}
+
+body {
+  width: 100vw;
+  max-width: 100vw;
+  background-color: var(--black);
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.tabbar {
+  position: absolute;
+  left: 50%;
+  top: 2rem;
+  transform: translateX(-50%);
+  width: max-content;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  margin: auto;
+  background-color: #ffffff06;
+  color: white;
+  border-radius: 2.1rcap;
+  border: 0.15rem solid #ffffffa5;
+  overflow: hidden;
+}
+
+.tabbar .tab {
+  padding: 1rem 2rem;
+  border-radius: 2rcap;
+}
+
+.tabbar .indicator {
+  position: absolute;
+  background-color: rgb(45, 45, 45);
+  z-index: -1;
+  width: 50%;
+  height: 100%;
+  border-radius: 2rcap;
+  transition: 400ms cubic-bezier(0.075, 1, 0.1, 1.4);
+}
+
+.tabbar .row {
+  display: flex;
+}
+
+.tabbar .row .tab {
+  cursor: pointer;
+}
+
+.content {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* geri sayım */
+
+.content #countdown {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-45%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 400ms;
+  transform-origin: top center;
+}
+
+.content #countdown .step1,
+.content #countdown .step2,
+.content #countdown .step3 {
+  display: flex;
+  gap: 1rem;
+}
+
+.content #countdown .step2,
+.content #countdown .step3 {
+  visibility: hidden;
+  transform: scale(0);
+  filter: blur(2rem);
+  width: 0px;
+}
+
+.content #countdown .step3 .info_box {
+  position: absolute;
+  width: 100%;
+  background-color: #424242;
+  bottom: -280%;
+  border-radius: 3rcap;
+  padding: 2rem;
+}
+
+.content #countdown .step3 .info_box ul {
+  list-style-type: none;
+  width: 100%;
+}
+
+.content #countdown .step3 .info_box ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.content #countdown .day,
+.content #countdown .month,
+.content #countdown .year,
+.content #countdown .hour,
+.content #countdown .minute {
+  border: 0.15rem solid rgb(107, 107, 107);
+  background-color: #ffffff06;
+  font-size: 4rem;
+  padding: 1rem;
+  border-radius: 3.5rcap;
+  cursor: pointer;
+}
+
+.content .buttons {
+  position: absolute;
+  bottom: -150%;
+  z-index: -10;
+}
+
+.content #f-next {
+  width: 100%;
+  background-color: white;
+  border-radius: 3rcap;
+  padding: 2rem 10rem;
+  outline: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.content #f-next:active {
+  transform: scale(0.9);
+  transition: 100ms;
+}
+
+/* kronometre */
+.content #stopwatch {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: 400ms;
+}
+
+@media (min-width: 780px) {
+  .content #countdown .day:hover,
+  .content #countdown .month:hover,
+  .content #countdown .year:hover,
+  .content #countdown .hour:hover,
+  .content #countdown .minute:hover {
+    transform: scale(1.3);
+    margin: 0px 1.5rem;
+    transition: 500ms;
+  }
+
+  .content #countdown .day:hover ~ #day,
+  .content #countdown .month:hover ~ #month,
+  .content #countdown .year:hover ~ #year,
+  .content #countdown .hour:hover ~ #hour,
+  .content #countdown .minute:hover ~ #minute {
+    transform: scale(1) translateX(0px);
+    opacity: 1;
+  }
+
+  .db-content {
+    position: absolute;
+    width: 100%;
+  }
+
+  #day,
+  #month,
+  #year,
+  #hour,
+  #minute {
+    width: max-content;
+    height: max-content;
+    max-height: 35vh;
+    background-color: white;
+    color: #000;
+    border-radius: 3rch;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    padding: 2rem;
+    opacity: 0;
+    transform: scale(0);
+    overflow: auto;
+  }
+
+  #day::-webkit-scrollbar,
+  #month::-webkit-scrollbar,
+  #year::-webkit-scrollbar,
+  #hour::-webkit-scrollbar,
+  #minute::-webkit-scrollbar {
+    background: #00000000;
+  }
+
+  #hour {
+    left: 10%;
+  }
+
+  #minute {
+    right: 5%;
+  }
+
+  #day {
+    left: 5%;
+  }
+
+  #month {
+    left: 35%;
+    right: 35%;
+  }
+
+  #year {
+    right: 15%;
+  }
+
+  #day::after,
+  #month::after,
+  #year::after {
+    content: "";
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 0.1rem;
+    left: 45%;
+    rotate: 45deg;
+    z-index: -10;
+    transform: translateX(-50%);
+    background-color: white;
+  }
+
+  #day:hover,
+  #month:hover,
+  #year:hover,
+  #hour:hover,
+  #minute:hover {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

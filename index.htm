@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Countdown</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabbar">
+        <div class="indicator" id="indicator"></div>
+        <div class="row">
+          <div class="tab" id="c">
+            <p>Countdown</p>
+          </div>
+          <div class="tab" id="s">
+            <p>Stopwatch</p>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div id="countdown">
+          <div class="step1" id="step1">
+            <div class="day" id="selectedDay">03</div>
+            <div class="month" id="selectedMonth">10</div>
+            <div class="year" id="selectedYear">2025</div>
+            <!-- dropbox -->
+            <div class="db-content" id="day">
+              <p>Gün</p>
+              <ul id="dayList"></ul>
+            </div>
+            <div class="db-content" id="month">
+              <p>Ay</p>
+              <ul id="mothList"></ul>
+            </div>
+            <div class="db-content" id="year">
+              <p>Yıl</p>
+              <ul id="yearList"></ul>
+            </div>
+          </div>
+
+          <!-- saat -->
+
+          <div class="step2" id="step2">
+            <div class="hour" id="selectedHour">10</div>
+            <div class="minute" id="selectedMinute">59</div>
+            <div class="db-content" id="hour">
+              <p>Saat</p>
+              <ul id="hourList"></ul>
+            </div>
+            <div class="db-content" id="minute">
+              <p>Dakika</p>
+              <ul id="minuteList"></ul>
+            </div>
+          </div>
+
+          <div class="step3" id="step3">
+            <div class="hour" id="countdownDays">36000</div>
+            <div class="minute" id="countdownHours">59</div>
+            <div class="minute" id="countdownMinutes">59</div>
+            <div class="minute" id="countdownSeconds">59</div>
+
+            <div class="info_box">
+              <ul id="info">
+                <li>
+                  <h4>Gün olarak</h4>
+                  <p id="asDays">1</p>
+                </li>
+                <li>
+                  <h4>Saat olarak</h4>
+                  <p id="asHours">1</p>
+                </li>
+                <li>
+                  <h4>Dakika olarak</h4>
+                  <p id="asMinutes">1</p>
+                </li>
+                <li>
+                  <h4>Sanniye olarak</h4>
+                  <p id="asSeconds">1</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="buttons" id="buttons">
+            <button id="f-next">Devam et</button>
+          </div>
+        </div>
+
+        <!-- kronometre -->
+
+        <div id="stopwatch">asdas</div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
